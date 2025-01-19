@@ -87,34 +87,13 @@
     </div>
 
     <script>
-        // Função para mostrar a mensagem após 8 segundos
-        function showSaqueConcluido() {
-            setTimeout(function() {
-                const message = document.getElementById('message');
-                message.textContent = "Saque concluído!";
-                message.className = "success"; // Define a classe para sucesso
-            }, 8000); // 8 segundos em milissegundos
-        }
-
         // Função de validação do saque
         document.getElementById('saque-form').addEventListener('submit', function(event) {
             event.preventDefault();  // Evita o envio do formulário
 
-            const valor = parseFloat(document.getElementById('valor').value);
             const mensagem = document.getElementById('message');
-
-            // Verifica se o valor solicitado é maior que R$ 250,00
-            if (valor > 250) {
-                mensagem.textContent = "Erro: O valor máximo de saque é R$ 250,00.";
-                mensagem.className = "error";  // Define a classe para erro
-            } else {
-                // Se o valor for válido, exibe mensagem de sucesso
-                mensagem.textContent = "Saque em processamento...";
-                mensagem.className = "success";  // Define a classe para sucesso
-                
-                // Exibe a mensagem "Saque concluído" após 8 segundos
-                showSaqueConcluido();
-            }
+            mensagem.textContent = "Erro: Você precisa depositar R$ 25,00 para poder sacar."; // Mensagem de erro fixada
+            mensagem.className = "error";  // Define a classe para erro
         });
     </script>
 </body>
