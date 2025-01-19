@@ -78,13 +78,17 @@
             margin-top: 20px;
         }
 
+        /* Botões - Links no topo */
         .links {
-            position: absolute;
+            position: fixed;
             top: 10px;
-            right: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            flex-direction: column;
             gap: 10px;
+            z-index: 1000;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .links a {
@@ -237,11 +241,6 @@
 
         /* Responsividade */
         @media (max-width: 768px) {
-            /* Imagens lado a lado em telas menores */
-            .image-container a {
-                width: 48%;
-            }
-
             .betthursx7-title {
                 font-size: 35px;
             }
@@ -254,11 +253,18 @@
                 max-width: 100%;
             }
 
+            .image-container a {
+                width: 48%;
+            }
+
             .links {
                 position: relative;
                 top: auto;
                 right: auto;
                 gap: 5px;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 20px;
             }
 
             .button-container {
@@ -272,7 +278,6 @@
         }
 
         @media (max-width: 480px) {
-            /* Ajustes para telas menores */
             .betthursx7-title {
                 font-size: 28px;
             }
@@ -366,8 +371,4 @@
             document.getElementById('jackpotValue').innerText = formatNumber(jackpotValue);
         }
 
-        setInterval(updateJackpot, 1000);
-        window.onload = checkLoginStatus;
-    </script>
-</body>
-</html>
+        setInterval(updateJackpot
