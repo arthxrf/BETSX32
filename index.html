@@ -55,6 +55,8 @@
             border-radius: 10px;
             text-align: center;
             color: gold;
+            max-width: 400px;
+            width: 90%;
         }
 
         .popup button {
@@ -275,6 +277,14 @@
     </style>
 </head>
 <body>
+    <!-- Popup para usar o modo computador no celular -->
+    <div class="popup" id="popupDeviceWarning">
+        <div class="popup-content">
+            <h2>Se estiver usando o celular, use o modo computador do navegador para melhor experiência!</h2>
+            <button onclick="closePopup()">Fechar</button>
+        </div>
+    </div>
+
     <div class="popup" id="popup">
         <div class="popup-content">
             <h2>Você precisa fazer login para acessar o site!</h2>
@@ -346,6 +356,24 @@
         setInterval(updateJackpot, 1000); // Atualiza o jackpot a cada 1 segundo
 
         window.onload = checkLoginStatus; // Verifica o login ao carregar a página
+
+        // Função para verificar se o dispositivo é celular
+        function checkDevice() {
+            if (window.innerWidth <= 768) {
+                document.getElementById('popupDeviceWarning').style.display = 'flex';
+            }
+        }
+
+        // Função para fechar o popup de aviso de dispositivo
+        function closePopup() {
+            document.getElementById('popupDeviceWarning').style.display = 'none';
+        }
+
+        // Chama a função ao carregar a página
+        window.onload = function() {
+            checkLoginStatus();
+            checkDevice();
+        }
     </script>
 </body>
 </html>
