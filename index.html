@@ -18,6 +18,8 @@
             margin: 0;
             min-height: 100vh; /* Garante que o conteúdo ocupe pelo menos 100% da altura da tela */
             padding: 0 20px;
+            overflow-x: hidden; /* Desabilita a rolagem horizontal */
+            overflow-y: auto; /* Habilita rolagem vertical */
         }
 
         @keyframes gradientAnimation {
@@ -69,17 +71,15 @@
             background-color: darkgoldenrod;
         }
 
-        /* Links (botões) no topo */
+        /* Links (botões) no topo direito */
         .links {
             position: fixed;
             top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
+            right: 20px;
             display: flex;
             flex-direction: column;
             gap: 10px;
             z-index: 1000;
-            align-items: center;
         }
 
         .links a {
@@ -89,7 +89,6 @@
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
-            width: 100%;
             text-align: center;
         }
 
@@ -130,20 +129,21 @@
         /* Imagens lado a lado */
         .image-container {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             gap: 20px;
             margin-top: 20px;
             width: 100%;
-            align-items: center;
+            justify-content: center;
         }
 
         .image-container a {
-            width: 80%;
+            width: 30%;
+            min-width: 250px;
         }
 
         .image-container img {
             width: 100%;
-            height: 200px;
+            height: auto;
             object-fit: cover;
             border-radius: 10px;
         }
@@ -191,8 +191,7 @@
         }
 
         /* Responsividade específica para celular */
-        @media (max-width: 480px) {
-            /* Ajustes para o conteúdo */
+        @media (max-width: 768px) {
             .betthursx7-title {
                 font-size: 28px;
             }
@@ -215,7 +214,7 @@
                 position: relative;
                 top: auto;
                 left: auto;
-                flex-direction: column;
+                flex-direction: row;
                 gap: 8px;
                 margin-top: 20px;
             }
@@ -229,6 +228,48 @@
             /* Tamanho do texto */
             .titulo {
                 font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Ajustes para dispositivos menores */
+            .betthursx7-title {
+                font-size: 24px;
+            }
+
+            .jackpot {
+                font-size: 24px;
+                width: 100%;
+            }
+
+            .bet-image {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .image-container a {
+                width: 100%;
+            }
+
+            .image-container img {
+                height: 150px;
+            }
+
+            /* Links no topo para celular */
+            .links {
+                flex-direction: row;
+                gap: 5px;
+                margin-top: 10px;
+            }
+
+            /* Ajuste do botão perfil */
+            .perfil-button {
+                bottom: 10px;
+                right: 10px;
+            }
+
+            .titulo {
+                font-size: 14px;
             }
         }
     </style>
